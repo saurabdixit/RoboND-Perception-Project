@@ -1,6 +1,6 @@
 ## Project: Perception Pick & Place
 Welcome to the implementation of Perception Pick and Place project
-![]("/misc/images/testworld1.png")
+![]("./misc/images/testworld1.png")
 
 ---
 
@@ -30,6 +30,10 @@ rosed pr2_robot pick_place_project.launch
  <arg name="world_name" value="$(find pr2_robot)/worlds/test3.world"/>
 ```
 5. No need to select the picklist. I am parsing above launch file to select the picklist.
+6. SVM model is saved in following location. Hence, you are ready to run the project.
+```bash
+roscd pr2_robot/svm
+```
 6. Run following command, enable point cloud, and markers in rviz window to see the object detection
 ```bash
 roslaunch pr2_robot pick_place_project.launch
