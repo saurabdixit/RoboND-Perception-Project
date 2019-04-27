@@ -1,5 +1,6 @@
 ## Project: Perception Pick & Place
-Welcome to the implementation of Perception Pick and Place project
+Welcome to the implementation of Perception Pick and Place project!
+
 [//]: # (Image References)
 [world1]: ./misc/images/testworld1.png
 [world2]: ./misc/images/testworld2.png
