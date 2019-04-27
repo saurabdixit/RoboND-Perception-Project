@@ -5,7 +5,7 @@ Welcome to the implementation of Perception Pick and Place project!
 [world1]: ./misc/images/testworld1.png
 [world2]: ./misc/images/testWorld2.png
 [world3]: ./misc/images/testWorld3.png
-[confusionmatrix]: ./misc/images/confusionmatrix.png
+[confusionmatrix]: ./misc/images/confusionMatrix.png
 [ClusterDemo]: ./misc/images/Clusterdemo.png
 
 ### Test world 1
