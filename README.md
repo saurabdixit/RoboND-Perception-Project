@@ -1,8 +1,43 @@
 ## Project: Perception Pick & Place
-### Writeup Template: You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
+Welcome to the implementation of Perception Pick and Place project
+![]("/misc/images/testworld1.png")
 
 ---
 
+# Steps to run the project:
+1. Clone the repository to the source folder of your catkin workspace. Note that this package is dependent on the sensor_stick package. Hence, make sure that you have the sensor_stick package build.
+```bash
+cd ~/catkin_ws/src/
+git clone https://github.com/saurabdixit/RoboND-Perception-Project.git
+```
+2. Run following commands on your catkin workspace.
+```bash
+cd ~/catkin_ws/
+rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
+catkin_make
+```
+3. Open pick_place_project.launch file to edit.
+```bash
+rosed pr2_robot pick_place_project.launch
+```
+4. Change following line to open the test\#.world of your choice.
+```xml
+ <!--For world 1 use following line-->
+ <arg name="world_name" value="$(find pr2_robot)/worlds/test1.world"/>
+ <!--For world 2 use following line-->
+ <arg name="world_name" value="$(find pr2_robot)/worlds/test2.world"/>
+ <!--For world 3 use following line-->
+ <arg name="world_name" value="$(find pr2_robot)/worlds/test3.world"/>
+```
+5. No need to select the picklist. I am parsing above launch file to select the picklist.
+6. Run following command, enable point cloud, and markers in rviz window to see the object detection
+```bash
+roslaunch pr2_robot pick_place_project.launch
+```
+7. output_data_world\_\#.yaml will be saved to following location
+```bash
+roscd pr2_robot/config
+```
 
 # Required Steps for a Passing Submission:
 1. Extract features and train an SVM model on new objects (see `pick_list_*.yaml` in `/pr2_robot/config/` for the list of models you'll be trying to identify). 
@@ -42,7 +77,6 @@ You're reading it!
 #### 2. Complete Exercise 3 Steps.  Features extracted and SVM trained.  Object recognition implemented.
 Here is an example of how to include an image in your writeup.
 
-![demo-1](https://user-images.githubusercontent.com/20687560/28748231-46b5b912-7467-11e7-8778-3095172b7b19.png)
 
 ### Pick and Place Setup
 
