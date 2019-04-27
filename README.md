@@ -248,14 +248,14 @@ def compute_color_histograms(cloud, using_hsv=False):
     return normed_features 
 ```
 
-I got around 92% accuracy when I ran the train_svm.py for 25 iteration using hsv instead of rgb
+I got 98% accuracy when I ran the train_svm.py for 25 iteration using hsv instead of rgb
 
 ![][confusionmatrix]
 
 ---
 
-* object recognition implementation
-I am running prediction using hsv. Here is the implementation of Exercise 3 in pr2_perception.py
+
+* Object recognition implementation: I am running prediction using hsv. Here is the implementation of Exercise 3 in pr2_perception.py
 ```python
     detected_objects_labels = []
     detected_objects = []
@@ -348,8 +348,8 @@ if not is_yaml_created:
 
 ### Improvements:
 * Need some parameter tuning to better detect the book object
-* If we need to identify object in real-time, we need to make sure that the point cloud is not too dense
-* We could make a ros parameter to launch the code using following command line argument.
+* To identify objects in real-time, we need to make sure not to process too dense point cloud.
+* We could make a ros parameter to launch the code using following command line argument instead of opening the file for changing the world_name.
 ```bash
 roslaunch pr2_robot pick_place_project.launch test1.world
 ```
