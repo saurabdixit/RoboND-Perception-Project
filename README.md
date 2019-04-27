@@ -3,8 +3,8 @@ Welcome to the implementation of Perception Pick and Place project!
 
 [//]: # (Image References)
 [world1]: ./misc/images/testworld1.png
-[world2]: ./misc/images/testworld2.png
-[world3]: ./misc/images/testworld3.png
+[world2]: ./misc/images/testWorld2.png
+[world3]: ./misc/images/testWorld3.png
 [confusionmatrix]: ./misc/images/confusionmatrix.png
 [ClusterDemo]: ./misc/images/Clusterdemo.png
 
@@ -130,7 +130,7 @@ Let's go through the steps one by one
     ros_cloud_objects = outlier_filter.filter()
 ```
 
-### Exercise 2: Clustering for segmentation
+#### Exercise 2: Clustering for segmentation
 * Identify Euclidean clusters
 ```python
     # TODO: Euclidean Clustering
@@ -174,8 +174,8 @@ Let's go through the steps one by one
 ![][ClusterDemo]
 
 
-### Exercise 3: Features extraction, SVM training, and object recognition
-#### compute_color_histograms() implementation
+#### Exercise 3: Features extraction, SVM training, and object recognition
+* compute_color_histograms() implementation
 ```python
 def compute_color_histograms(cloud, using_hsv=False):
     point_colors_list = []
@@ -210,7 +210,7 @@ def compute_color_histograms(cloud, using_hsv=False):
     #print(normed_features)
     return normed_features 
 ```
-#### compute_normal_histograms() implementation
+* compute_normal_histograms() implementation
 ```python
 def compute_color_histograms(cloud, using_hsv=False):
 
@@ -253,7 +253,8 @@ I got around 92% accuracy when I ran the train_svm.py for 25 iteration using hsv
 ![][confusionmatrix]
 
 ---
-#### object recognition implementation
+
+* object recognition implementation
 I am running prediction using hsv. Here is the implementation of Exercise 3 in pr2_perception.py
 ```python
     detected_objects_labels = []
@@ -293,9 +294,8 @@ I am running prediction using hsv. Here is the implementation of Exercise 3 in p
     detected_object_pub.publish(detected_objects)
 ```
 
-### Pick and Place Setup
-
-#### 1. For all three tabletop setups (`test*.world`), perform object recognition, then read in respective pick list (`pick_list_*.yaml`). Next construct the messages that would comprise a valid `PickPlace` request output them to `.yaml` format.
+### Pick and Place Setup:
+Following code from pr2_perception.py writes the output_test_world\#.yaml file as soon as it detects all the objects. The files will be stored in pr2_robot\config folder.
 ```python
 global is_yaml_created
 if not is_yaml_created:
@@ -345,3 +345,13 @@ if not is_yaml_created:
         print("-------------------------------------")
         is_yaml_created = True
 ```
+
+### Improvements:
+* Need some parameter tuning to better detect the book object
+* If we need to identify object in real-time, we need to make sure that the point cloud is not too dense
+* We could make a ros parameter to launch the code using following command line argument.
+```bash
+roslaunch pr2_robot pick_place_project.launch test1.world
+```
+
+
