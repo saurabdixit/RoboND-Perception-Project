@@ -1,7 +1,12 @@
 ## Project: Perception Pick & Place
 Welcome to the implementation of Perception Pick and Place project
-![]("./misc/images/testworld1.png")
+[//]: # (Image References)
+[world1]: ./misc/images/testworld1.png
+[world2]: ./misc/images/testworld2.png
+[world3]: ./misc/images/testworld3.png
+[confusionmatrix]: ./misc/images/confusionmatrix.png
 
+![][world1]
 ---
 
 # Steps to run the project:
