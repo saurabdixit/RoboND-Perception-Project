@@ -52,7 +52,7 @@ def send_to_yaml(yaml_filename, dict_list):
 def pcl_callback(pcl_msg):
 
     ##########################################################################
-    # Exercise-2 TODOs:
+    # Exercise-1:
     ##########################################################################
 
     # TODO: Convert ROS msg to PCL data
@@ -102,6 +102,9 @@ def pcl_callback(pcl_msg):
     outlier_filter.set_std_dev_mul_thresh(x)
     ros_cloud_objects = outlier_filter.filter()
 
+    ##########################################################################
+    # Exercise-2:
+    ##########################################################################
 
     # TODO: Euclidean Clustering
     white_cloud = XYZRGB_to_XYZ(ros_cloud_objects)
@@ -135,7 +138,7 @@ def pcl_callback(pcl_msg):
     pcl_clustercloud_pub.publish(pcl_to_ros(cluster_cloud))
 
     ##########################################################################
-    # Exercise-3 TODOs: 
+    # Exercise-3:
     ##########################################################################
     
     
@@ -176,6 +179,9 @@ def pcl_callback(pcl_msg):
 
     detected_object_pub.publish(detected_objects)
 
+    ##########################################################################
+    # Output yaml file for pick and place
+    ##########################################################################
 
 
     global is_yaml_created
