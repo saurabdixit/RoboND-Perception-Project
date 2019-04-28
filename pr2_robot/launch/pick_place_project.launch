@@ -10,7 +10,7 @@
   <!--Launch a gazebo world-->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <!--TODO:Change the world name to load different tabletop setup-->
-    <arg name="world_name" value="$(find pr2_robot)/worlds/test2.world"/>
+    <arg name="world_name" value="$(find pr2_robot)/worlds/test1.world"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="paused" value="false"/>
     <arg name="gui" value="true"/>
@@ -42,7 +42,8 @@
   <node name="feature_extractor" pkg="sensor_stick" type="feature_extractor" respawn="false"/>
 
   <!--run the perception task-->
-  <node name="pr2_perception" pkg="pr2_robot" type="pr2_perception.py"/>
+  <!-- NEED TO RUN THIS SEPARATELY AFTER THE ROBOT MOVE THE HAND AWAY FROM THE CAMERA -->
+  <!--node name="pr2_perception" pkg="pr2_robot" type="pr2_perception.py"/-->
 
   
 
